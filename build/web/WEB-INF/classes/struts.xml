@@ -11,6 +11,24 @@
         <action name="login" class="phat.struts2.LoginAction">
             <result name="success">search.jsp</result>
             <result name="fail" type="redirect">invalid.html</result>
+            
+        </action>
+        <action name="search" class="phat.struts2.SearchAction">
+            <result name="success">search.jsp</result>
+        </action>
+        <action name="DeleteRecore" class="phat.struts2.DeleteAction">
+            <result name="success" type="redirectAction">
+                <param name="actionName">search</param>
+                <param name="searchValue">${lastSearchValue}</param>
+            </result>
+            <result name="fail">delErr.html</result>
+        </action>
+        <action name="update" class="phat.struts2.UpdateAction">
+            <result name="success" type="redirectAction">
+                <param name="actionName">search</param>
+                <param name="searchValue">${lastSearchValue}</param>
+            </result>
+            <result name="fail">UpdateErr.html</result>
         </action>
     </package>
 </struts>
